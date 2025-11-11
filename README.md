@@ -1,12 +1,16 @@
-Exploring Isaac Lab and RL Training
+# Exploring Isaac Lab and RL Training
 
-Objective:
+## Objective
 
 The objective of this project was to familiarize myself with Nvidia's
 Isaac Lab/Sim software and how it works to train quadruped robots via
 Reinforcement Learning.
 
-Methods:\
+----
+
+
+## Methods
+
 I began by going through the intensive installation process with
 Windows. Initially my plan was to utilize Microsoft's WSL to run
 IsaacLab in a Linux virtual environment, but I ran into issues getting
@@ -28,20 +32,25 @@ From here I tested 4 different models: the aforementioned
 "Isaac-Velocity-Efficient-Anymal-C-v0", and
 "Isaac-Velocity-Rough-Anymal-C-v0".
 
-Model Information:\
-"Isaac-Velocity-Flat-Anymal-C-v0" -- This will serve as my baseline
+----
+
+
+## Model Information
+
+
+**"Isaac-Velocity-Flat-Anymal-C-v0"** -- This will serve as my baseline
 model for comparison; it is the default reward scheme and on a flat
 surface.
 
-"Isaac-Velocity-Speed-Anymal-C-v0" -- This is a model that I modified
+**"Isaac-Velocity-Speed-Anymal-C-v0"** -- This is a model that I modified
 parameters to give a greater velocity reward (x3), and much less of a
 penalty to torque and action rates.
 
-"Isaac-Velocity-Efficient-Anymal-C-v0" -- This model I reduced the
+**"Isaac-Velocity-Efficient-Anymal-C-v0"** -- This model I reduced the
 reward for velocity by 20% and gives steep penalties for energy usage
 (4x torque, 5x action rate), while also rewarding smoothness more.
 
-"Isaac-Velocity-Rough-Anymal-C-v0" -- Another default model like the
+**"Isaac-Velocity-Rough-Anymal-C-v0"** -- Another default model like the
 Flat_Anymal, but instead of a flat terrain this has a collection of
 rough terrains (think rocks, stairs). Rewards appear to be the same as
 Flat-Anymal.
@@ -49,20 +58,21 @@ Flat-Anymal.
 Each model was trained to 1500 epochs, and the data I will use for
 comparison is; reward, torque, smoothness, and velocity error.
 
-Findings:
+----
 
-![](media/tot_rewards.png){width="6.278737970253719in"
-height="4.150943788276465in"}
 
-![A graph of a graph showing different colored lines AI-generated
-content may be incorrect.](media/torque.png){width="6.311321084864392in"
-height="4.151581364829396in"}
+## Findings
 
-![A graph of a graph showing different colors AI-generated content may
-be incorrect.](media/smmoothness.png){width="6.281432633420822in"
-height="4.094339457567804in"}
+![](media/tot_rewards.png)
 
-**[Final Performance Comparison]{.underline}**
+![](media/torque.png)
+
+![](media/smoothness.png)
+
+----
+
+
+## Final Performance Comparison
 
 Configuration Final Reward Avg Torque Avg Smoothness Final Velocity
 Error
@@ -75,7 +85,10 @@ Energy Efficient 0.159568 -0.188491 -0.020813 1.313339
 
 Rough Terrain 10.427635 -0.071819 -0.051374 0.593919
 
-Discussion:
+----
+
+
+## Discussion
 
 What stands out right away is the "Energy Efficient" model. In my
 experience of being an HVAC Controls Technician I deal with PID control
@@ -127,7 +140,10 @@ believe trying the "Fast" model with the Rough terrain would be an
 interesting experiment as well. Finally, I would like to try the other
 teaching types of robots other than just quadrupeds for comparison.
 
-Summary:
+----
+
+
+## Summary
 
 To conclude my first experience using IsaacLab was incredibly insightful
 and gave me a lot of exposure to what is involved in training robots via
